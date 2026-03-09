@@ -1,38 +1,73 @@
-# Projeto Final — Alerta Vermelho (Datathon Investigativo)
+# 🚨 Poluição Atmosférica
+### Projeto 03 — Alerta Vermelho: Crise Ambiental Misteriosa
 
-- **Disciplina:** Programação para Ciência de Dados
-- **Curso:** MBA em Ciência de Dados — UNIFOR (Turma 13)
-- **Professor:** Cássio Pinheiro
-- **Equipe:** Felipe Cezar
+**Equipe:** Felipe Cezar
 
 ---
 
-## O Problema Investigado
-A Secretaria de Meio Ambiente detectou um aumento alarmante de internações por doenças respiratórias em bairros específicos. O objetivo desta investigação foi cruzar três bases de dados isoladas (qualidade do ar, internações e cadastro de indústrias) para descobrir de onde vem a poluição, quando ela acontece e quem é o verdadeiro responsável pela crise de saúde pública.
+## 📋 Descrição da Operação
+A Secretaria do Meio Ambiente detectou um aumento alarmante de internações por doenças respiratórias em bairros específicos da cidade. Embora as estações de monitoramento de qualidade do ar registrem dados há dois anos, esses registros nunca haviam sido cruzados com os dados hospitalares. 
 
-## Principais Descobertas
-- O fator climático (A Seca): Comprovamos que a época do "B-R-O Bró" agrava as internações, pois a falta de chuvas impede a lavagem da atmosfera, criando uma estufa de poluentes.
-- A Cena do Crime (Jurema): A zona industrial da Jurema apresentou níveis de poluição até 4 vezes maiores que áreas residenciais, cravando um IQA de 199.3 (Alerta/Péssimo).
-- O Relógio do Crime: As emissões não ocorrem em horário comercial. Os níveis de Material Particulado Grosso (MP10) e Dióxido de Enxofre (SO2) explodem mais de 76% acima da média exclusivamente às 22h e 00h.
-- O Xeque-Mate: A empresa QuimNorte Ltda (Química Industrial) foi identificada como a fonte poluidora, operando com licença ambiental vencida desde 2021 e burlando a fiscalização ao concentrar a queima de compostos químicos na madrugada.
+O objetivo desta investigação é atuar como Cientista de Dados para conectar os pontos e descobrir: **de onde vem a poluição, quando ela acontece e quem está sendo afetado.**
 
-## Como Executar
-1. Clone este repositório em sua máquina local.
-2. Certifique-se de que os arquivos `.csv` originais estejam dentro da pasta `data/`.
-3. Instale as dependências necessárias: `pip install pandas numpy matplotlib seaborn`
-4. Abra e execute o arquivo `notebooks/investigacao.ipynb` célula por célula.
+---
 
-## Vídeo de Storytelling
-- [Assista ao mini-documentário da investigação aqui] (INSERIR O LINK DO YOUTUBE/DRIVE AQUI)
+## 🔍 Principais Descobertas
+A investigação cruzou os bancos de dados de saúde e meio ambiente, revelando um padrão claro de crime ambiental:
 
-## Estrutura do Repositório
-- alerta-vermelho-CDT13/
-  - README.md (Documentação principal)
-  - notebooks/investigacao.ipynb (Notebook com a análise completa e storytelling)
-  - data/ (Bases de dados em CSV)
+* **As Vítimas:** Os bairros com os maiores índices de internações por doenças respiratórias são Maraponga, Jurema e Messejana.
+* **A Sazonalidade:** Existem picos claros de internações que ocorrem entre julho e dezembro de cada ano. Este período coincide com a época de seca, facilitando a dispersão de partículas nocivas na atmosfera.
+* **O Epicentro:** A Jurema apresentou níveis de poluição extremos. Somando a poluição de bairros afetados como Maraponga e Messejana, o valor ainda é inferior à carga poluidora concentrada apenas na Jurema.
+* **A Assinatura do Crime:** A análise horária revelou que a poluição não é constante. Existem picos absurdos de emissão durante a madrugada (especialmente às 22h e 00h), indicando uma possível liberação intencional "às escondidas".
+* **O Culpado:** O principal componente liberado nessas madrugadas é o SO2 (Dióxido de Enxofre), típico de indústrias químicas. O cruzamento com o banco de empresas revelou que a **Quim Norte LTDA**, uma indústria química localizada na Jurema, está operando com a licença ambiental vencida.
 
-## Tecnologias Utilizadas
-- Python 3
-- Pandas (Tratamento, merge e análise temporal)
-- NumPy (Cálculo do Índice de Qualidade do Ar)
-- Matplotlib e Seaborn (Visualização de dados e gráficos)
+---
+
+## ⚠️ Considerações e Limitações do Cenário (Adendos)
+É importante ressaltar que este projeto opera sob um cenário parcialmente fictício e controlado. Em uma aplicação 100% real, a investigação exigiria mais rigor geográfico e demográfico:
+1. **Anomalia Geográfica:** O dataset trata a "Jurema" como um bairro de Fortaleza. Na realidade, Jurema é um vasto distrito do município vizinho de Caucaia, englobando diversos bairros. 
+2. **Dados Faltantes:** Uma análise real exigiria dados de densidade populacional (para calcular taxas de incidência proporcionais), variáveis meteorológicas (direção dos ventos) e um mapeamento completo de todas as empresas e hospitais da região metropolitana.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+A investigação foi conduzida utilizando o ecossistema de dados da linguagem Python:
+* **Linguagem:** Python 3
+* **Manipulação de Dados:** Pandas, NumPy
+* **Visualização de Dados:** Matplotlib, Seaborn
+* **Inteligência Geográfica:** Folium (com manipulação de arquivos GeoJSON)
+* **Ambiente:** Jupyter Notebook
+
+---
+
+## 🚀 Como Executar
+O projeto foi desenvolvido para ser de fácil reprodução. Para testar a investigação:
+1. Abra o arquivo `notebooks/investigacao.ipynb` em um ambiente Jupyter ou no VS Code.
+2. Certifique-se de ter as bibliotecas acima instaladas no seu ambiente virtual.
+3. No menu superior, clique em **"Run All"** (Executar Tudo). O script rodará em cascata de cima a baixo, carregando os dados, realizando a limpeza e plotando os gráficos automaticamente.
+
+---
+
+## 📂 Estrutura do Repositório
+
+```text
+📦 projeto3_poluicao_atmosferica
+ ┣ 📂 data/        # Bases de dados fornecidas (CSVs) e a malha territorial (GeoJSON) para validação geográfica.
+ ┣ 📂 docs/        # Contém o Cartoon de apresentação da investigação.
+ ┣ 📂 images/      # Arquivos HTML dos mapas interativos gerados durante a análise.
+ ┣ 📂 notebooks/   
+ ┃ ┗ 📜 investigacao.ipynb  # O "Diário de Investigação". Contém todo o fluxo de pensamento, tentativas, limpezas e validação de hipóteses.
+ ┗ 📜 README.md
+```
+*Nota sobre o Notebook:* O arquivo `investigacao.ipynb` reflete o processo real de um Cientista de Dados iniciante resolvendo um problema do zero. Ele contém importações, tratamentos, validações de hipóteses (algumas corretas, outras descartadas) e o fluxo completo de raciocínio, priorizando o entendimento da investigação em detrimento de uma estruturação de software rígida.
+
+---
+
+## 🎬 O Cartoon (Substituição do Vídeo)
+Devido à complexidade do documento e das ramificações da análise, o vídeo gerado automaticamente por IA (NotebookLM) não apresentou a precisão e a estrutura necessárias para contar essa história. 
+
+Como alternativa para apresentar os achados de forma didática, visual e estruturada, desenvolvi um **Cartoon Investigativo** resumindo o caso (desconsiderando a parte técnica de tratamento de dados):
+
+<div align="center">
+  <img src="docs/cartoon.svg" alt="Cartoon da Investigação" width="100%">
+</div>
